@@ -152,13 +152,13 @@ function Home() {
             <div className="home-intro hidden">
                 <div className="content">
                     <div className="content-tertiary">
-                        <p><span>✌🏻</span> Hi there! I'm Onyedika</p>
+                        <p><span>✌🏻</span> Hi there! I'm SK Sohel</p>
                     </div>
                     <div className="content-primary">
-                        <h1>a <span>Frontend Engineer</span>. I help startups <span>launch</span> and <span>grow</span> their products</h1>
+                        <h1>a <span>Full-Stack Developer</span>. I build smart business solutions with <span>AI automation</span> and <span>scripting</span></h1>
                     </div>
                     <div className="content-secondary">
-                        <p>I am a software engineer with more than four years of experience. Recognized as a practical and effective developer, experienced in leading cross-functional teams in a time-pressured setting to complete projects on schedule and within budget.</p>
+                        <p>I'm a Full-Stack Developer, AI Automation Enthusiast, and System Scripter. I build smart business solutions by combining Web Development, AI, and Scripting. My focus is on creating AI-powered systems to automate everyday tasks and scale business efficiency.</p>
                     </div>
                 </div>
 
@@ -190,15 +190,7 @@ function Home() {
                             <ReactIcon />
                         </div>
                         <div className="box-text">
-                            <p>React</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <AngularIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>Angular</p>
+                            <p>React.js</p>
                         </div>
                     </div>
                     <div className="box-content">
@@ -211,34 +203,10 @@ function Home() {
                     </div>
                     <div className="box-content">
                         <div className="box-icon">
-                            <MongoIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>MongoDB</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
                             <JavaScriptIcon />
                         </div>
                         <div className="box-text">
                             <p>JavaScript</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <FigmaIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>Figma</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <SassIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>Sass</p>
                         </div>
                     </div>
                     <div className="box-content">
@@ -251,10 +219,42 @@ function Home() {
                     </div>
                     <div className="box-content">
                         <div className="box-icon">
+                            <MongoIcon />
+                        </div>
+                        <div className="box-text">
+                            <p>MySQL</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <SassIcon />
+                        </div>
+                        <div className="box-text">
+                            <p>Tailwind CSS</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <AngularIcon />
+                        </div>
+                        <div className="box-text">
+                            <p>Python</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <FigmaIcon />
+                        </div>
+                        <div className="box-text">
+                            <p>PHP</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
                             <SolidityIcon />
                         </div>
                         <div className="box-text">
-                            <p>Solidity</p>
+                            <p>LangChain</p>
                         </div>
                     </div>
                     <div className="box-content">
@@ -262,7 +262,7 @@ function Home() {
                             <PolygonIcon />
                         </div>
                         <div className="box-text">
-                            <p>Polygon</p>
+                            <p>Bash/Shell</p>
                         </div>
                     </div>
                 </div>
@@ -315,10 +315,10 @@ function Home() {
                             <p>Featured <span>Article</span></p>
                         </div>
                         <div className="bottom">
-                            <h4>Building Scalable Web Applications with Modern JavaScript</h4>
+                            <h4>Building AI-Powered Automation Systems for Business Efficiency</h4>
                             <div className="info">
                                 <p>Read Article</p>
-                                <a href="https://hackernoon.com/u/onyedika" target="_blank" rel="noopener noreferrer">
+                                <a href="https://dev.to/sksohel" target="_blank" rel="noopener noreferrer">
                                     →
                                 </a>
                             </div>

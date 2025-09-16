@@ -3,7 +3,7 @@
 html, body {
   width: 100%;
   height: 100%;
-  cursor: default;
+  cursor: url('./assets/cursor.svg'), auto;
 }
 
 body {
@@ -57,6 +57,57 @@ h4 {
 
 a {
   text-decoration: none;
+}
+
+/* Custom Cursor Styles */
+button, 
+.butt,
+.nav__button,
+.logo,
+.github,
+.linkedin, 
+.twitter,
+.schedule,
+.social-mail,
+.github-box,
+.linkedin-box,
+.twitter-box,
+.schedule-box {
+  cursor: url('./assets/arrowClick.svg'), pointer;
+}
+
+/* Only menu links get the arrow point cursor */
+.nav-link {
+  cursor: url('./assets/arrowPoint..svg'), pointer;
+}
+
+.right-arrow,
+.left-arrow {
+  cursor: url('./assets/arrowClick.svg'), pointer;
+}
+
+/* Interactive elements on hover get arrow click cursor */
+button:hover,
+.butt:hover,
+.nav__button:hover,
+.logo:hover,
+.github:hover,
+.linkedin:hover, 
+.twitter:hover,
+.schedule:hover,
+.social-mail:hover,
+.github-box:hover,
+.linkedin-box:hover,
+.twitter-box:hover,
+.schedule-box:hover,
+.right-arrow:hover,
+.left-arrow:hover {
+  cursor: url('./assets/arrowClick.svg'), pointer;
+}
+
+/* Only navigation menu links get arrow point cursor on hover */
+.nav-link:hover {
+  cursor: url('./assets/arrowPoint..svg'), pointer;
 }
 
 /* Scrollbar Styles */
