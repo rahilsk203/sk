@@ -1,77 +1,88 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProjectSlider from '../ProjectSlider/ProjectSlider';
 import './Home.scss';
+import PythonIconSVG from '../../assets/python-svgrepo-com.svg';
+import ReactIconSVG from '../../assets/react-svgrepo-com.svg';
+import MySQLIconSVG from '../../assets/mysql-svgrepo-com.svg';
+import TailwindIconSVG from '../../assets/tailwindcss-icon-svgrepo-com.svg';
+import PHPIconSVG from '../../assets/php-svgrepo-com.svg';
+import BashIconSVG from '../../assets/bash-svgrepo-com.svg';
+import NodeIconSVG from '../../assets/nodejs-svgrepo-com.svg';
 
-// Technology icons as simple SVGs
+// Technology icons using imported SVGs for better consistency
 const ReactIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <circle cx="12" cy="12" r="2" fill="#61DAFB"/>
-        <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2Z" fill="#61DAFB"/>
-    </svg>
+    <img src={ReactIconSVG} alt="React" className="tech-icon" />
 );
 
 const JavaScriptIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <rect width="24" height="24" fill="#F7DF1E"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="12" fill="#000">JS</text>
-    </svg>
+    <div className="tech-icon-wrapper">
+        <svg viewBox="0 0 24 24" className="tech-icon">
+            <rect width="24" height="24" fill="#F7DF1E"/>
+            <text x="12" y="16" textAnchor="middle" fontSize="12" fill="#000" fontWeight="bold">JS</text>
+        </svg>
+    </div>
 );
 
 const NodeIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <circle cx="12" cy="12" r="10" fill="#339933"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff">Node</text>
-    </svg>
+    <img src={NodeIconSVG} alt="Node.js" className="tech-icon" />
 );
 
 const TypeScriptIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <rect width="24" height="24" fill="#3178C6"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff">TS</text>
-    </svg>
+    <div className="tech-icon-wrapper">
+        <svg viewBox="0 0 24 24" className="tech-icon">
+            <rect width="24" height="24" fill="#3178C6"/>
+            <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff" fontWeight="bold">TS</text>
+        </svg>
+    </div>
 );
 
-const SassIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <circle cx="12" cy="12" r="10" fill="#CC6699"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff">Sass</text>
-    </svg>
+const TailwindIcon = () => (
+    <img src={TailwindIconSVG} alt="Tailwind CSS" className="tech-icon" />
 );
 
-const FigmaIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <rect width="24" height="24" fill="#F24E1E"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff">Fig</text>
-    </svg>
+const PHPIcon = () => (
+    <img src={PHPIconSVG} alt="PHP" className="tech-icon" />
 );
 
-const MongoIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <circle cx="12" cy="12" r="10" fill="#47A248"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="6" fill="#fff">Mongo</text>
-    </svg>
+const MySQLIcon = () => (
+    <img src={MySQLIconSVG} alt="MySQL" className="tech-icon" />
 );
 
-const AngularIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <polygon points="12,2 22,6 20,20 12,22 4,20 2,6" fill="#DD0031"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff">Ang</text>
-    </svg>
+const PythonIcon = () => (
+    <img src={PythonIconSVG} alt="Python" className="tech-icon" />
 );
 
-const SolidityIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <polygon points="12,2 22,12 12,22 2,12" fill="#363636"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff">Sol</text>
-    </svg>
+const BashIcon = () => (
+    <img src={BashIconSVG} alt="Bash/Shell" className="tech-icon" />
 );
 
-const PolygonIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <polygon points="12,2 22,8 22,16 12,22 2,16 2,8" fill="#8247E5"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="6" fill="#fff">Poly</text>
-    </svg>
-);
+// Updated Tech Stack data with better categorization
+const techStackData = [
+    {
+        category: "Frontend",
+        technologies: [
+            { icon: <ReactIcon />, name: "React.js" },
+            { icon: <JavaScriptIcon />, name: "JavaScript" },
+            { icon: <TypeScriptIcon />, name: "TypeScript" },
+            { icon: <TailwindIcon />, name: "Tailwind CSS" }
+        ]
+    },
+    {
+        category: "Backend",
+        technologies: [
+            { icon: <NodeIcon />, name: "Node.js" },
+            { icon: <PHPIcon />, name: "PHP" },
+            { icon: <PythonIcon />, name: "Python" }
+        ]
+    },
+    {
+        category: "Database & Tools",
+        technologies: [
+            { icon: <MySQLIcon />, name: "MySQL" },
+            { icon: <BashIcon />, name: "Bash/Shell" }
+        ]
+    }
+];
 
 const projectData = [
     {
@@ -184,87 +195,28 @@ function Home() {
                 <div className="tooling-title">
                     <h2>Tech Stack</h2>
                 </div>
-                <div className="tooling-box">
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <ReactIcon />
+                <div className="tooling-container">
+                    {techStackData.map((category, index) => (
+                        <div key={index} className="tooling-category">
+                            <h3 className="category-title">{category.category}</h3>
+                            <div className="tooling-box">
+                                {category.technologies.map((tech, techIndex) => (
+                                    <div 
+                                        key={techIndex} 
+                                        className="box-content animated-card"
+                                        style={{ '--index': techIndex }}
+                                    >
+                                        <div className="box-icon">
+                                            {tech.icon}
+                                        </div>
+                                        <div className="box-text">
+                                            <p>{tech.name}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div className="box-text">
-                            <p>React.js</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <NodeIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>Node.js</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <JavaScriptIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>JavaScript</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <TypeScriptIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>TypeScript</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <MongoIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>MySQL</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <SassIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>Tailwind CSS</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <AngularIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>Python</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <FigmaIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>PHP</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <SolidityIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>LangChain</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <PolygonIcon />
-                        </div>
-                        <div className="box-text">
-                            <p>Bash/Shell</p>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
 
