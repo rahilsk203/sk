@@ -93,7 +93,7 @@ button,
 
 /* Only menu links get the arrow point cursor */
 .nav-link {
-  cursor: url('./assets/arrowPoint..svg'), pointer;
+  cursor: url('./assets/menuPoint.svg'), pointer;
 }
 
 .right-arrow,
@@ -122,7 +122,7 @@ button:hover,
 
 /* Only navigation menu links get arrow point cursor on hover */
 .nav-link:hover {
-  cursor: url('./assets/arrowPoint..svg'), pointer;
+  cursor: url('./assets/menuPoint.svg'), pointer;
 }
 
 /* Scrollbar Styles */

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ProjectData } from './projectData';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import './ProjectSlider.scss';
 
 const ProjectSlider = ({ setBackground }) => {
   const [current, setCurrent] = useState(0);
