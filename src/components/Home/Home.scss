@@ -11,8 +11,7 @@
         background-image: linear-gradient(
         to right bottom,
         rgba(#050810, 0.6),
-        rgba(#050810, 0.6)),
-    url('./../../assets//images//index.svg');
+        rgba(#050810, 0.6));
     background-size: cover;
     background-position: top;
     // position: relative;
@@ -722,7 +721,7 @@
         width: 60%;
         height: 200px;
         background-color: transparent;
-        background-image: url('./../../assets/images/quote.png');
+        /* background-image: url('./../../assets/images/quote.png'); - Image not found */
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -941,7 +940,7 @@
             min-height: 35rem;
             width: 100%;
             max-width: 27rem;
-            background-image: url('./../../assets//images//robo-mi.png');
+            /* background-image: url('./../../assets//images//robo-mi.png'); - Image not found */
             background-size: cover;
             background-position: right;
             border-radius: 15px;
