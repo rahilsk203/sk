@@ -1,90 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import ProjectSlider from '../ProjectSlider/ProjectSlider';
+import { ProjectData } from '../ProjectSlider/projectData';
 import './Home.scss';
-import PythonIconSVG from '../../assets/python-svgrepo-com.svg';
-import ReactIconSVG from '../../assets/react-svgrepo-com.svg';
-import MySQLIconSVG from '../../assets/mysql-svgrepo-com.svg';
-import TailwindIconSVG from '../../assets/tailwindcss-icon-svgrepo-com.svg';
-import PHPIconSVG from '../../assets/php-svgrepo-com.svg';
-import BashIconSVG from '../../assets/bash-svgrepo-com.svg';
-import NodeIconSVG from '../../assets/nodejs-svgrepo-com.svg';
 
-// Technology icons using imported SVGs for better consistency
-const ReactIcon = () => (
-    <img src={ReactIconSVG} alt="React" className="tech-icon" />
-);
+// Import technology icons from assets
+import ReactIcon from '../../assets/react-svgrepo-com.svg';
+import NodeIcon from '../../assets/nodejs-svgrepo-com.svg';
+import MySQLIcon from '../../assets/mysql-svgrepo-com.svg';
+import TailwindIcon from '../../assets/tailwindcss-icon-svgrepo-com.svg';
+import PythonIcon from '../../assets/python-svgrepo-com.svg';
+import PHPIcon from '../../assets/php-svgrepo-com.svg';
+import BashIcon from '../../assets/bash-svgrepo-com.svg';
 
-const JavaScriptIcon = () => (
-    <div className="tech-icon-wrapper">
-        <svg viewBox="0 0 24 24" className="tech-icon">
-            <rect width="24" height="24" fill="#F7DF1E"/>
-            <text x="12" y="16" textAnchor="middle" fontSize="12" fill="#000" fontWeight="bold">JS</text>
-        </svg>
-    </div>
-);
-
-const NodeIcon = () => (
-    <img src={NodeIconSVG} alt="Node.js" className="tech-icon" />
-);
-
-const TypeScriptIcon = () => (
-    <div className="tech-icon-wrapper">
-        <svg viewBox="0 0 24 24" className="tech-icon">
-            <rect width="24" height="24" fill="#3178C6"/>
-            <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff" fontWeight="bold">TS</text>
-        </svg>
-    </div>
-);
-
-const TailwindIcon = () => (
-    <img src={TailwindIconSVG} alt="Tailwind CSS" className="tech-icon" />
-);
-
-const PHPIcon = () => (
-    <img src={PHPIconSVG} alt="PHP" className="tech-icon" />
-);
-
-const MySQLIcon = () => (
-    <img src={MySQLIconSVG} alt="MySQL" className="tech-icon" />
-);
-
-const PythonIcon = () => (
-    <img src={PythonIconSVG} alt="Python" className="tech-icon" />
-);
-
-const BashIcon = () => (
-    <img src={BashIconSVG} alt="Bash/Shell" className="tech-icon" />
-);
-
-// Updated Tech Stack data with better categorization
-const techStackData = [
-    {
-        category: "Frontend",
-        technologies: [
-            { icon: <ReactIcon />, name: "React.js" },
-            { icon: <JavaScriptIcon />, name: "JavaScript" },
-            { icon: <TypeScriptIcon />, name: "TypeScript" },
-            { icon: <TailwindIcon />, name: "Tailwind CSS" }
-        ]
-    },
-    {
-        category: "Backend",
-        technologies: [
-            { icon: <NodeIcon />, name: "Node.js" },
-            { icon: <PHPIcon />, name: "PHP" },
-            { icon: <PythonIcon />, name: "Python" }
-        ]
-    },
-    {
-        category: "Database & Tools",
-        technologies: [
-            { icon: <MySQLIcon />, name: "MySQL" },
-            { icon: <BashIcon />, name: "Bash/Shell" }
-        ]
-    }
-];
-
-const projectData = [
+// Data array for project images
+const Data = [
     {
         id: 0,
         img: "https://ik.imagekit.io/onyedika/phoneapp_oXM1Z9FA_.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667104369642",
@@ -123,9 +53,104 @@ const projectData = [
     },
 ];
 
+// Technology icons as SVG components
+const ReactIconComponent = () => (
+    <img src={ReactIcon} alt="React" className="icon" />
+);
+
+const NodeIconComponent = () => (
+    <img src={NodeIcon} alt="Node.js" className="icon" />
+);
+
+const MySQLIconComponent = () => (
+    <img src={MySQLIcon} alt="MySQL" className="icon" />
+);
+
+const TailwindIconComponent = () => (
+    <img src={TailwindIcon} alt="Tailwind CSS" className="icon" />
+);
+
+const PythonIconComponent = () => (
+    <img src={PythonIcon} alt="Python" className="icon" />
+);
+
+const PHPIconComponent = () => (
+    <img src={PHPIcon} alt="PHP" className="icon" />
+);
+
+const BashIconComponent = () => (
+    <img src={BashIcon} alt="Bash/Shell" className="icon" />
+);
+
+// Keep existing JavaScript, TypeScript, Sass, Figma, Mongo, Angular, Solidity, Polygon icons for other technologies
+const JavaScriptIcon = () => (
+    <svg viewBox="0 0 24 24" className="icon">
+        <rect width="24" height="24" fill="#F7DF1E" rx="4"/>
+        <text x="12" y="16" textAnchor="middle" fontSize="12" fill="#000" fontWeight="bold">JS</text>
+    </svg>
+);
+
+const TypeScriptIcon = () => (
+    <svg viewBox="0 0 24 24" className="icon">
+        <rect width="24" height="24" fill="#3178C6" rx="4"/>
+        <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff" fontWeight="bold">TS</text>
+    </svg>
+);
+
+const SassIcon = () => (
+    <svg viewBox="0 0 24 24" className="icon">
+        <circle cx="12" cy="12" r="10" fill="#CC6699"/>
+        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Sass</text>
+    </svg>
+);
+
+const FigmaIcon = () => (
+    <svg viewBox="0 0 24 24" className="icon">
+        <rect width="24" height="24" fill="#F24E1E" rx="4"/>
+        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Fig</text>
+    </svg>
+);
+
+const MongoIcon = () => (
+    <svg viewBox="0 0 24 24" className="icon">
+        <circle cx="12" cy="12" r="10" fill="#47A248"/>
+        <text x="12" y="16" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">Mongo</text>
+    </svg>
+);
+
+const AngularIcon = () => (
+    <svg viewBox="0 0 24 24" className="icon">
+        <polygon points="12,2 22,6 20,20 12,22 4,20 2,6" fill="#DD0031"/>
+        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Ang</text>
+    </svg>
+);
+
+const SolidityIcon = () => (
+    <svg viewBox="0 0 24 24" className="icon">
+        <polygon points="12,2 22,12 12,22 2,12" fill="#363636"/>
+        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Sol</text>
+    </svg>
+);
+
+const PolygonIcon = () => (
+    <svg viewBox="0 0 24 24" className="icon">
+        <polygon points="12,2 22,8 22,16 12,22 2,16 2,8" fill="#8247E5"/>
+        <text x="12" y="16" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">Poly</text>
+    </svg>
+);
+
 function Home() {
-    const [background, setBackground] = useState('');
     const Illus = useRef();
+    const i = gsap.utils.selector(Illus);
+    const tlm = useRef();
+    const dlm = useRef();
+
+    const [background, setBackground] = useState(0);
+
+    // Use the project data directly for background
+    const Styles = {
+       backgroundImage: `url(${ProjectData[background]?.img})`
+    }
 
     useEffect(() => {
         // Intersection Observer for animations
@@ -145,18 +170,10 @@ function Home() {
         return () => observer.disconnect();
     }, []);
 
-    const image = projectData.filter(data => data.id === background).map(filteredData => (
-        filteredData.img
-    ));
-
-    const Styles = {
-        backgroundImage: `url(${image})`
-    };
-
-    const navigateToWork = () => {
-        // Navigate to work section
-        document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
-    };
+    const nav = () => {
+        // Simple navigation without router
+        window.location.href = '/work';
+    }
 
     return (
         <div className="home" id="home">
@@ -195,28 +212,87 @@ function Home() {
                 <div className="tooling-title">
                     <h2>Tech Stack</h2>
                 </div>
-                <div className="tooling-container">
-                    {techStackData.map((category, index) => (
-                        <div key={index} className="tooling-category">
-                            <h3 className="category-title">{category.category}</h3>
-                            <div className="tooling-box">
-                                {category.technologies.map((tech, techIndex) => (
-                                    <div 
-                                        key={techIndex} 
-                                        className="box-content animated-card"
-                                        style={{ '--index': techIndex }}
-                                    >
-                                        <div className="box-icon">
-                                            {tech.icon}
-                                        </div>
-                                        <div className="box-text">
-                                            <p>{tech.name}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                <div className="tooling-box">
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <ReactIconComponent />
                         </div>
-                    ))}
+                        <div className="box-text">
+                            <p>React.js</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <NodeIconComponent />
+                        </div>
+                        <div className="box-text">
+                            <p>Node.js</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <JavaScriptIcon />
+                        </div>
+                        <div className="box-text">
+                            <p>JavaScript</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <TypeScriptIcon />
+                        </div>
+                        <div className="box-text">
+                            <p>TypeScript</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <MySQLIconComponent />
+                        </div>
+                        <div className="box-text">
+                            <p>MySQL</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <TailwindIconComponent />
+                        </div>
+                        <div className="box-text">
+                            <p>Tailwind CSS</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <PythonIconComponent />
+                        </div>
+                        <div className="box-text">
+                            <p>Python</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <PHPIconComponent />
+                        </div>
+                        <div className="box-text">
+                            <p>PHP</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <BashIconComponent />
+                        </div>
+                        <div className="box-text">
+                            <p>Bash/Shell</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <SolidityIcon />
+                        </div>
+                        <div className="box-text">
+                            <p>LangChain</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -226,10 +302,10 @@ function Home() {
                 </div>
                 <div className="showroom hidden">
                     <div className="showroom-background" style={Styles}></div>
-                    <ProjectSlider data={projectData} setBackground={setBackground} />
+                    <ProjectSlider setBackground={setBackground} />
                 </div>
                 <div className="button-wrap">
-                    <button className="butt" onClick={navigateToWork}>
+                    <button className="butt" onClick={nav}>
                         View All Projects
                     </button>
                 </div>
@@ -262,7 +338,7 @@ function Home() {
                     <h2>Featured Writing</h2>
                 </div>
                 <div className="featured-box">
-                    <div className="article">
+                    <article className="article">
                         <div className="top">
                             <p>Featured <span>Article</span></p>
                         </div>
@@ -270,12 +346,12 @@ function Home() {
                             <h4>Building AI-Powered Automation Systems for Business Efficiency</h4>
                             <div className="info">
                                 <p>Read Article</p>
-                                <a href="https://dev.to/sksohel" target="_blank" rel="noopener noreferrer">
+                                <a href="https://dev.to/sksohel" target="_blank" rel="noopener noreferrer" aria-label="Read full article">
                                     →
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </div>
