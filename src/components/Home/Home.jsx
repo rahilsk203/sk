@@ -1,150 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import gsap from 'gsap';
 import ProjectSlider from '../ProjectSlider/ProjectSlider';
 import { ProjectData } from '../ProjectSlider/projectData';
 import './Home.scss';
 
-// Import technology icons from assets
-import ReactIcon from '../../assets/react-svgrepo-com.svg';
-import NodeIcon from '../../assets/nodejs-svgrepo-com.svg';
-import MySQLIcon from '../../assets/mysql-svgrepo-com.svg';
-import TailwindIcon from '../../assets/tailwindcss-icon-svgrepo-com.svg';
-import PythonIcon from '../../assets/python-svgrepo-com.svg';
-import PHPIcon from '../../assets/php-svgrepo-com.svg';
-import BashIcon from '../../assets/bash-svgrepo-com.svg';
-
-// Data array for project images
-const Data = [
-    {
-        id: 0,
-        img: "https://ik.imagekit.io/onyedika/phoneapp_oXM1Z9FA_.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667104369642",
-    },
-    {
-        id: 1,
-        img: "https://ik.imagekit.io/onyedika/slide/pipar-beta?ik-sdk-version=javascript-1.4.3&updatedAt=1664831519274",
-    },
-    {
-        id: 2,
-        img: "https://ik.imagekit.io/onyedika/slide/pipar_peinACEKO.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256618",
-    },
-    {
-        id: 3,
-        img: "https://ik.imagekit.io/onyedika/slide/calender_S6GI-SE7_.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256123",
-    },
-    {
-        id: 4,
-        img: "https://ik.imagekit.io/onyedika/slide/movie_Si8QWOouP.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256396",
-    },
-    {
-        id: 5,
-        img: "https://ik.imagekit.io/onyedika/slide/natour_QGZwpr7Ta.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256510",
-    },
-    {
-        id: 6,
-        img: "https://ik.imagekit.io/onyedika/slide/ncehr_GV14iEwWG.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256179",
-    },
-    {
-        id: 7,
-        img: "https://ik.imagekit.io/onyedika/slide/guvve_sUg2If5kc.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256276",
-    },
-    {
-        id: 8,
-        img: "https://ik.imagekit.io/onyedika/slide/web3-forum_2lXPIycqd.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256840",
-    },
-];
-
-// Technology icons as SVG components
-const ReactIconComponent = () => (
-    <img src={ReactIcon} alt="React" className="icon" />
-);
-
-const NodeIconComponent = () => (
-    <img src={NodeIcon} alt="Node.js" className="icon" />
-);
-
-const MySQLIconComponent = () => (
-    <img src={MySQLIcon} alt="MySQL" className="icon" />
-);
-
-const TailwindIconComponent = () => (
-    <img src={TailwindIcon} alt="Tailwind CSS" className="icon" />
-);
-
-const PythonIconComponent = () => (
-    <img src={PythonIcon} alt="Python" className="icon" />
-);
-
-const PHPIconComponent = () => (
-    <img src={PHPIcon} alt="PHP" className="icon" />
-);
-
-const BashIconComponent = () => (
-    <img src={BashIcon} alt="Bash/Shell" className="icon" />
-);
-
-// Keep existing JavaScript, TypeScript, Sass, Figma, Mongo, Angular, Solidity, Polygon icons for other technologies
-const JavaScriptIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <rect width="24" height="24" fill="#F7DF1E" rx="4"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="12" fill="#000" fontWeight="bold">JS</text>
-    </svg>
-);
-
-const TypeScriptIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <rect width="24" height="24" fill="#3178C6" rx="4"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff" fontWeight="bold">TS</text>
-    </svg>
-);
-
-const SassIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <circle cx="12" cy="12" r="10" fill="#CC6699"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Sass</text>
-    </svg>
-);
-
-const FigmaIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <rect width="24" height="24" fill="#F24E1E" rx="4"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Fig</text>
-    </svg>
-);
-
-const MongoIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <circle cx="12" cy="12" r="10" fill="#47A248"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">Mongo</text>
-    </svg>
-);
-
-const AngularIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <polygon points="12,2 22,6 20,20 12,22 4,20 2,6" fill="#DD0031"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Ang</text>
-    </svg>
-);
-
-const SolidityIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <polygon points="12,2 22,12 12,22 2,12" fill="#363636"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Sol</text>
-    </svg>
-);
-
-const PolygonIcon = () => (
-    <svg viewBox="0 0 24 24" className="icon">
-        <polygon points="12,2 22,8 22,16 12,22 2,16 2,8" fill="#8247E5"/>
-        <text x="12" y="16" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">Poly</text>
-    </svg>
-);
-
 function Home() {
-    const Illus = useRef();
-    const i = gsap.utils.selector(Illus);
-    const tlm = useRef();
-    const dlm = useRef();
-
     const [background, setBackground] = useState(0);
 
     // Use the project data directly for background
@@ -170,28 +30,23 @@ function Home() {
         return () => observer.disconnect();
     }, []);
 
-    const nav = () => {
-        // Simple navigation without router
-        window.location.href = '/work';
-    }
-
     return (
         <div className="home" id="home">
             <div className="home-intro hidden">
                 <div className="content">
                     <div className="content-tertiary">
-                        <p><span>✌🏻</span> Hi there! I'm SK Sohel</p>
+                        <p><span>👋</span> Hi there! I'm Rahil S K</p>
                     </div>
                     <div className="content-primary">
-                        <h1>a <span>Full-Stack Developer</span>. I build smart business solutions with <span>AI automation</span> and <span>scripting</span></h1>
+                        <h1>a <span>Full-Stack Developer</span>. I build innovative web solutions with <span>JavaScript, Python, PHP & TypeScript</span> and <span>AI technologies</span></h1>
                     </div>
                     <div className="content-secondary">
-                        <p>I'm a Full-Stack Developer, AI Automation Enthusiast, and System Scripter. I build smart business solutions by combining Web Development, AI, and Scripting. My focus is on creating AI-powered systems to automate everyday tasks and scale business efficiency.</p>
+                        <p>Full-Stack Developer | JavaScript, Python, PHP, TypeScript | AI Enthusiast. Strong in JavaScript (frontend & backend), passionate about AI & automation projects, exploring new technologies and building innovative solutions. Open for collaboration on Web Development & AI projects.</p>
                     </div>
                 </div>
 
                 <div className="hero-icon">
-                    <svg ref={Illus} viewBox="0 0 500 366" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 500 366" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="150" cy="150" r="50" fill="#14E956" className="b-one"/>
                         <circle cx="350" cy="150" r="50" fill="#FFBD44" className="b-two"/>
                         <circle cx="250" cy="250" r="50" fill="#00CA4E" className="b-three"/>
@@ -215,23 +70,10 @@ function Home() {
                 <div className="tooling-box">
                     <div className="box-content">
                         <div className="box-icon">
-                            <ReactIconComponent />
-                        </div>
-                        <div className="box-text">
-                            <p>React.js</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <NodeIconComponent />
-                        </div>
-                        <div className="box-text">
-                            <p>Node.js</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <JavaScriptIcon />
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <rect width="24" height="24" fill="#F7DF1E" rx="4"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="12" fill="#000" fontWeight="bold">JS</text>
+                            </svg>
                         </div>
                         <div className="box-text">
                             <p>JavaScript</p>
@@ -239,7 +81,10 @@ function Home() {
                     </div>
                     <div className="box-content">
                         <div className="box-icon">
-                            <TypeScriptIcon />
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <rect width="24" height="24" fill="#3178C6" rx="4"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff" fontWeight="bold">TS</text>
+                            </svg>
                         </div>
                         <div className="box-text">
                             <p>TypeScript</p>
@@ -247,23 +92,10 @@ function Home() {
                     </div>
                     <div className="box-content">
                         <div className="box-icon">
-                            <MySQLIconComponent />
-                        </div>
-                        <div className="box-text">
-                            <p>MySQL</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <TailwindIconComponent />
-                        </div>
-                        <div className="box-text">
-                            <p>Tailwind CSS</p>
-                        </div>
-                    </div>
-                    <div className="box-content">
-                        <div className="box-icon">
-                            <PythonIconComponent />
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <circle cx="12" cy="12" r="10" fill="#3776ab"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">Py</text>
+                            </svg>
                         </div>
                         <div className="box-text">
                             <p>Python</p>
@@ -271,7 +103,10 @@ function Home() {
                     </div>
                     <div className="box-content">
                         <div className="box-icon">
-                            <PHPIconComponent />
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <rect width="24" height="24" fill="#777BB4" rx="4"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff" fontWeight="bold">PHP</text>
+                            </svg>
                         </div>
                         <div className="box-text">
                             <p>PHP</p>
@@ -279,18 +114,57 @@ function Home() {
                     </div>
                     <div className="box-content">
                         <div className="box-icon">
-                            <BashIconComponent />
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <circle cx="12" cy="12" r="10" fill="#47A248"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">Mongo</text>
+                            </svg>
                         </div>
                         <div className="box-text">
-                            <p>Bash/Shell</p>
+                            <p>MongoDB</p>
                         </div>
                     </div>
                     <div className="box-content">
                         <div className="box-icon">
-                            <SolidityIcon />
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <rect width="24" height="24" fill="#4479A1" rx="4"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">MySQL</text>
+                            </svg>
                         </div>
                         <div className="box-text">
-                            <p>LangChain</p>
+                            <p>MySQL</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <circle cx="12" cy="12" r="12" fill="#F48120"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">CW</text>
+                            </svg>
+                        </div>
+                        <div className="box-text">
+                            <p>Cloudflare Workers</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <circle cx="12" cy="12" r="10" fill="#61DAFB"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#000" fontWeight="bold">Vite</text>
+                            </svg>
+                        </div>
+                        <div className="box-text">
+                            <p>Vite</p>
+                        </div>
+                    </div>
+                    <div className="box-content">
+                        <div className="box-icon">
+                            <svg viewBox="0 0 24 24" className="icon">
+                                <circle cx="12" cy="12" r="10" fill="#000"/>
+                                <text x="12" y="16" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="bold">AI</text>
+                            </svg>
+                        </div>
+                        <div className="box-text">
+                            <p>AI</p>
                         </div>
                     </div>
                 </div>
@@ -298,14 +172,14 @@ function Home() {
 
             <div className="showroom-section" id="work">
                 <div className="showroom-title hidden">
-                    <h2>Featured Projects</h2>
+                    <h2>Projects</h2>
                 </div>
                 <div className="showroom hidden">
                     <div className="showroom-background" style={Styles}></div>
                     <ProjectSlider setBackground={setBackground} />
                 </div>
                 <div className="button-wrap">
-                    <button className="butt" onClick={nav}>
+                    <button className="butt">
                         View All Projects
                     </button>
                 </div>
@@ -321,7 +195,7 @@ function Home() {
                     </div>
                     <div className="quote-body-content">
                         <p>
-                            <span>Code</span> is like humor. When you have to explain it, it's bad.
+                            <span>Code</span> is my tool, innovation is my goal.
                         </p>
                     </div>
                     <div className="right">
@@ -335,20 +209,17 @@ function Home() {
 
             <div className="featured hidden">
                 <div className="featured-title">
-                    <h2>Featured Writing</h2>
+                    <h2>About Me</h2>
                 </div>
                 <div className="featured-box">
                     <article className="article">
-                        <div className="top">
-                            <p>Featured <span>Article</span></p>
-                        </div>
                         <div className="bottom">
-                            <h4>Building AI-Powered Automation Systems for Business Efficiency</h4>
+                            <p>Strong in JavaScript (frontend & backend)</p>
+                            <p>Passionate about AI & automation projects</p>
+                            <p>Exploring new technologies and building innovative solutions</p>
+                            <p>Open for collaboration on Web Development & AI projects</p>
                             <div className="info">
-                                <p>Read Article</p>
-                                <a href="https://dev.to/sksohel" target="_blank" rel="noopener noreferrer" aria-label="Read full article">
-                                    →
-                                </a>
+                                <p>Contact: rahilsk203@gmail.com</p>
                             </div>
                         </div>
                     </article>

@@ -1,65 +1,65 @@
 export const ProjectData = [
     {
-        title: "PhoneBook App",
-        description: "Manage your phone contacts the easy way. create, update and delete your personal contacts all from one app. This is a MERN stack app with react redux toolkit. Find source code on my github",
+        title: "EmperorsCafe ☕",
+        description: "A modern website for a café/restaurant with interactive UI and seamless design.",
         img: "https://ik.imagekit.io/onyedika/phoneapp_oXM1Z9FA_.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667104369642",
         stack: "React",
-        link: "https://phone-rosy.vercel.app/"
+        link: "#"
     },
     {
-        title: "Pipar Beta",
-        description: "Start A Company And Manage Operations Across The Globe Right From Where You Are. Still in beta mode but the Authentication feature works. [DESKTOP MODE ONLY]",
+        title: "ElevenInterior 🏢",
+        description: "Professional interior design company site with gallery showcase and contact forms.",
         img: "https://ik.imagekit.io/onyedika/slide/pipar-beta?ik-sdk-version=javascript-1.4.3&updatedAt=1664831519274",
-        stack: "Angular",
-        link: "https://pipar-beta.vercel.app/"
+        stack: "React",
+        link: "#"
     },
     {
-        title: "Pipar",
-        description: "A digital web3 platform for tokenizing company shares/stocks. These assets can be fungible or non-fungible",
+        title: "Multidl 🌐",
+        description: "Multi-purpose project with modern UI and responsive design.",
         img: "https://ik.imagekit.io/onyedika/slide/pipar_peinACEKO.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256618",
-        stack: "Angular",
-        link: "https://pipar.vercel.app/"
+        stack: "React",
+        link: "#"
     },
     {
-        title: "Company Calender",
-        description: "Know legal requirements and dates the company must keep to avoid legal santions after a company is incorporated",
+        title: "PhoneBook App",
+        description: "Manage your phone contacts the easy way. Create, update and delete your personal contacts all from one app.",
         img: "https://ik.imagekit.io/onyedika/slide/calender_S6GI-SE7_.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256123",
-        stack: "Angular",
-        link: "https://company-calender-front.vercel.app/"
+        stack: "React",
+        link: "#"
     },
     {
         title: "React Movie",
         description: "Stay upto date with trending movies, see the authors of these movies and their casts. Also view the ratings!",
         img: "https://ik.imagekit.io/onyedika/slide/movie_Si8QWOouP.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256396",
         stack: "React",
-        link: "https://elastic-archimedes-a45a17.netlify.app/"
+        link: "#"
     },
     {
         title: "Natour",
         description: "A platform that helps you discover the most intriguing locations for your vacations. Book hotels and spa's at a cheaper rate",
         img: "https://ik.imagekit.io/onyedika/slide/natour_QGZwpr7Ta.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256510",
         stack: "CSS",
-        link: "https://natours-neon.vercel.app/"
+        link: "#"
     },
     {
         title: "NCEHR",
         description: "An NGO that focuses on solving the problem of climate change in africa. They're also inter-disciplinary with various academic institutions involved",
         img: "https://ik.imagekit.io/onyedika/slide/ncehr_GV14iEwWG.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256179",
         stack: "Angular",
-        link: "https://ncher-new.vercel.app/"
+        link: "#"
     },
     {
         title: "Gruvve",
-        description: "web3 startup accelerator, both in finance and human resource. They look for web3 contributors who want to make an impact in the web3 space",
+        description: "Web3 startup accelerator, both in finance and human resource. They look for web3 contributors who want to make an impact in the web3 space",
         img: "https://ik.imagekit.io/onyedika/slide/guvve_sUg2If5kc.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256276",
         stack: "Node/React",
-        link: "https://gruvve-front.vercel.app/"
+        link: "#"
     },
     {
         title: "Web3 Forum",
-        description: "A web3 forum built on top of polygon. Anyone can add comments after signing in with metamask. This was a follow-up tutorial by pointer.gg",
+        description: "A web3 forum built on top of polygon. Anyone can add comments after signing in with metamask.",
         img: "https://ik.imagekit.io/onyedika/slide/web3-forum_2lXPIycqd.png?ik-sdk-version=javascript-1.4.3&updatedAt=1651255256840",
         stack: "Polygon",
-        link: "https://comments-with-polygon-beta.vercel.app/"
+        link: "#"
     },
 ];
