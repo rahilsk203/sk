@@ -9,121 +9,95 @@ export default function Preloader() {
   React.useEffect(() => {
     if (!el.current) return;
 
-    // Morphing shapes animation
-    const tl = gsap.timeline({ repeat: -1 });
+    // Create a more sophisticated timeline with multiple sequences
+    const tl = gsap.timeline();
     
-    // Circle to square morph
-    tl.to(".morph-shape", {
-      borderRadius: "0%",
-      rotation: 45,
-      duration: 1.5,
-      ease: "elastic.inOut(1, 0.3)"
+    // Initial entrance animation
+    tl.from(".loading-dot", {
+      scale: 0,
+      duration: 0.6,
+      stagger: 0.15,
+      ease: "back.out(1.7)"
     })
-    // Square to triangle
-    .to(".morph-shape", {
-      borderRadius: "0 50% 50% 50%",
-      rotation: 180,
-      duration: 1.5,
-      ease: "elastic.inOut(1, 0.3)"
+    // Main bounce sequence
+    .to(".loading-dot", {
+      y: -40,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: "power2.out"
     })
-    // Triangle to diamond
-    .to(".morph-shape", {
-      borderRadius: "0%",
-      rotation: 225,
-      duration: 1.5,
-      ease: "elastic.inOut(1, 0.3)"
+    .to(".loading-dot", {
+      y: 0,
+      scale: 1.3,
+      duration: 0.4,
+      stagger: 0.1,
+      ease: "bounce.out"
     })
-    // Diamond back to circle
-    .to(".morph-shape", {
-      borderRadius: "50%",
-      rotation: 360,
-      duration: 1.5,
-      ease: "elastic.inOut(1, 0.3)"
-    });
-    
-    // Independent dot pulsing animation
-    const pulseTl = gsap.timeline({ repeat: -1 });
-    pulseTl.to(".pulse-dot", {
-      scale: 1.8,
-      opacity: 0.7,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power1.inOut"
-    })
-    .to(".pulse-dot", {
-      scale: 1,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power1.inOut"
-    });
-    
-    // Orbiting dots animation
-    const orbitTl = gsap.timeline({ repeat: -1 });
-    orbitTl.to(".orbit-dot", {
-      rotation: 360,
-      duration: 8,
-      ease: "none"
-    });
-    
-    // Color shifting for all elements
-    const colorTl = gsap.timeline({ repeat: -1, yoyo: true });
-    colorTl.to([".morph-shape", ".pulse-dot", ".orbit-dot"], {
+    // Color pulse effect
+    .to(".loading-dot", {
       backgroundColor: "#00ffaa",
-      duration: 2
+      duration: 0.3,
+      stagger: 0.1
     })
-    .to([".morph-shape", ".pulse-dot", ".orbit-dot"], {
-      backgroundColor: "#ff00aa",
-      duration: 2
-    })
-    .to([".morph-shape", ".pulse-dot", ".orbit-dot"], {
+    .to(".loading-dot", {
       backgroundColor: "#10e956",
-      duration: 2
-    });
-
-    // Final exit sequence
-    const exitTl = gsap.timeline({
-      delay: 8,
-      onComplete: () => setIsVisible(false)
-    });
-    
-    exitTl.to(".preloader-content", {
+      duration: 0.3,
+      stagger: 0.1
+    })
+    // Secondary bounce with rotation
+    .to(".loading-dot", {
+      y: -25,
+      rotation: 180,
+      duration: 0.4,
+      stagger: 0.12,
+      ease: "power3.out"
+    })
+    .to(".loading-dot", {
+      y: 0,
+      rotation: 0,
+      scale: 1,
+      duration: 0.3,
+      stagger: 0.12,
+      ease: "elastic.out(1, 0.3)"
+    })
+    // Final spin sequence
+    .to(".loading-dot", {
+      rotation: 360,
+      scale: 1.4,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "back.out(1.7)"
+    })
+    .to(".loading-dot", {
+      scale: 1,
+      rotation: 0,
+      duration: 0.4,
+      stagger: 0.1
+    })
+    // Fade out sequence with delay
+    .to(".anime", {
       opacity: 0,
       duration: 1,
-      ease: "power2.out"
+      delay: 0.5,
+      onComplete: () => setIsVisible(false)
     });
 
     return () => {
       tl.kill();
-      pulseTl.kill();
-      orbitTl.kill();
-      colorTl.kill();
-      exitTl.kill();
     };
   }, []);
 
   if (!isVisible) return null;
 
   return (
-    <div ref={el} className="anime">
-      <div className="preloader-content">
-        {/* Central morphing shape */}
-        <div className="morph-container">
-          <div className="morph-shape"></div>
-        </div>
-        
-        {/* Pulsing dots */}
-        <div className="pulse-dots">
-          <div className="pulse-dot"></div>
-          <div className="pulse-dot"></div>
-          <div className="pulse-dot"></div>
-        </div>
-        
-        {/* Orbiting dots */}
-        <div className="orbit-container">
-          <div className="orbit-dot orbit-dot-1"></div>
-          <div className="orbit-dot orbit-dot-2"></div>
-          <div className="orbit-dot orbit-dot-3"></div>
+    <div ref={el}>
+      <div className="anime">
+        <div className="load">
+          <div className="loading-container">
+            <div className="loading-dot"></div>
+            <div className="loading-dot"></div>
+            <div className="loading-dot"></div>
+          </div>
         </div>
       </div>
     </div>

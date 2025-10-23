@@ -11,10 +11,10 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
     
-    // Adjust timing for the new preloader
+    // Adjust timing to better match our enhanced animation
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 9000); // Increased to accommodate the new animation sequence
+    }, 4500); // Increased to accommodate the longer, more complex animation sequence
 
     return () => clearTimeout(timer);
   }, []);
